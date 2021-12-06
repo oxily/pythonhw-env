@@ -17,8 +17,11 @@
                 <td>{{data.topic_news}}</td>
                 <td>{{data.date_news}}</td>
                 <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <input action="{{% url 'contentEdit' %}}" method="GET">
+                        <input type="text" value="{{data.id}}" name="id"></input>
+                        <button type="submit">Edit</button>
+                    </form>
+                    
                 </td>
                     
             </tr>
