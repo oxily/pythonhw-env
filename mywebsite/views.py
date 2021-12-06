@@ -31,7 +31,13 @@ def contentNews(request):
     }
     return render(request, 'mywebsite/contentNews.html', data)
 
-
+def contentEdit(request):
+    id = request.GET['id']
+    result = tb_news.objects.filter(pk=id)
+    data = {
+        'result' : result
+    }
+    return render(request, 'mywebsite/contentEdit.html', data)
 
 # def resultPage(request):
 #     topic = request.POST['topic_news']
