@@ -16,9 +16,9 @@
                 <td>{{data.id}}</td>
                 <td>{{data.topic_news}}</td>
                 <td>{{data.date_news}}</td>
-                <td>
-                    <input action="{{% url 'contentEdit' %}}" method="GET">
-                        <input type="text" value="{{data.id}}" name="id"></input>
+                <td>  
+                    <form action="{% url 'contentEdit' %}" method="GET">
+                        <input type="hidden" value="{{data.id}}" name="id"> </input>
                         <button type="submit">Edit</button>
                     </form>
                     
