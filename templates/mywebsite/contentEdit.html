@@ -3,18 +3,19 @@
 <h1> Edit News </h1>
 
 {% for data in result %}
-<form action="" enctype="multipart/form-data" method="POST">
+<form action="{% url 'contentUpdate' %}" enctype="multipart/form-data" method="POST">
     {% csrf_token %}
+    <input type="hidden" value="{{data.id}}" name="id">
     <div class="mb-3">
         <label for="" class="form-label">Topic</label>
-        <input type="text" class="form-control" name="topic_news" value={{data.topic_news}}>
+        <input type="text" class="form-control" name="topic_news" value={{data.topic_news}} required>
       </div>
       <div class="mb-3">
         <label for="" class="form-label">Detail</label>
-        <textarea class="form-control"  rows="10" name="detail_news">{{data.detail_news}}</textarea>
+        <textarea class="form-control"  rows="10" name="detail_news" required>{{data.detail_news}}</textarea>
       </div>
       <div>
-          <input type="file" class="form-control" name="photo_news" accept="image/">
+          <input type="file" class="form-control" name="photo_news" accept="image/" required>
           <img src={{data.photo_news.url}}>
       </div>
       <div>
