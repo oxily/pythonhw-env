@@ -27,5 +27,7 @@ urlpatterns = [
     path('recordNews/', views.recordNews, name="recordNews"),
     path('contentNews/', views.contentNews),
     path('contentEdit/', views.contentEdit, name="contentEdit"),
+    path('contentUpdate/', views.contentUpdate, name="contentUpdate"),
+    
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
