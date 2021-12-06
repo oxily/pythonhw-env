@@ -1,0 +1,27 @@
+{% extends 'mywebsite/mainHTML.html' %}
+{% block content %}
+<h1> Edit News </h1>
+
+{% for data in result %}
+<form action="" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="" class="form-label">Topic</label>
+        <input type="text" class="form-control" name="topic_news" value={{data.topic_news}}>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Detail</label>
+        <textarea class="form-control"  rows="10" name="detail_news" value={{data.detail_news}}></textarea>
+      </div>
+      <div>
+          <input type="file" class="form-control" name="photo_news" accept="image/">
+          <img src={{data.photo_news.url}}>
+      </div>
+      <div>
+          <button type="submit" class="btn btn-primary" > Submit News </button>
+      </div>
+</form>
+{% endfor %}
+
+
+{% endblock %}
