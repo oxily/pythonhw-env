@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mywebsite import views
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
@@ -25,5 +26,6 @@ urlpatterns = [
     # path('resultPage/', views.resultPage, name="resultPage"),
     path('recordNews/', views.recordNews, name="recordNews"),
     path('contentNews/', views.contentNews),
+    path('contentEdit/', views.contentEdit, name="contentEdit"),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
