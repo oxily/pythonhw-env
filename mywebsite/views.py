@@ -39,6 +39,19 @@ def contentEdit(request):
     }
     return render(request, 'mywebsite/contentEdit.html', data)
 
+def contentUpdate(request):
+    id = request.POST['id']
+    topic = request.POST['topic_news']
+    detail = request.POST['detail_news']
+    photo = request.FILES['photo_news']
+
+    content = tb_news.objects.get(pk=id)
+    content.topic_news = topic
+    content.detail_news = detail
+    content.photo_news = photo
+    content.save()
+    return redirect('/contentNews')
+
 # def resultPage(request):
 #     topic = request.POST['topic_news']
 #     detail = request.POST['detail_news']
